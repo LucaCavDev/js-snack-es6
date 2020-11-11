@@ -29,31 +29,31 @@ var squadre = [
     "falliSubiti": 0
   }
 ];
-console.log(squadre);  //mi aspettavo uscisse tutto 0, ma console log mi prende la variabile aggiornata. per stampare l'array con tutto 0 0 0  avrei dovuto stamparla in html
 
+squadre.forEach((element) => {
+  console.log(`${element.nome} ha totalizzato ${element.puntiFatti} punti e ha subito ${element.falliSubiti} falli`);
+});
+//_________________________________
+console.log('_______________________________________________now we spread around some points and fouls___________________________________________________________');
+//_____________________
+//faccio il nuovo e apprezzato forEach
+squadre.forEach((element) => {
+  let puntiRandom = getRandom(100);
+  let falliRandom = getRandom(100);
+  element.puntiFatti = puntiRandom;
+  element.falliSubiti = falliRandom;
+  console.log(`${element.nome} made ${element.puntiFatti} points and got ${element.falliSubiti} fouls`);
+});
 
-// STEP”:
-// Generare numeri random al posto degli 0 nelle proprietà: punti fatti e falli subiti
-// consegna 12.25
-
-for (var i = 0; i < squadre.length; i++) {
-
-  var puntiRandom = getRandom(100);
-  var falliRandom = getRandom(100);
-  // var puntiRandom = Math.floor(Math.random() * 100 + 1);
-  // var falliRandom = Math.floor(Math.random() * 100 + 1);
-
-  squadre[i].puntiFatti = puntiRandom;
-  squadre[i].falliSubiti = falliRandom;
-}
-
-console.log(squadre);
-
+console.log('____________________________lets order the teams by points_______________________________');
 
 squadre.sort(function(a,b) {
   return b.puntiFatti - a.puntiFatti;
 });
-console.log("Classifica ordinata:", squadre);
+console.log("Classifica ordinata:");
+squadre.forEach((element) => {
+  console.log(`${element.nome} ha totalizzato ${element.puntiFatti} punti e ha subito ${element.falliSubiti} falli`);
+});
 
 
 //funzioni generiche:
