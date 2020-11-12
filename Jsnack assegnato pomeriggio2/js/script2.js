@@ -56,14 +56,17 @@ var arrayNuovo = arrayObj.map((element) => {
 console.log(arrayNuovo);
 NON FUNZIONA mi prende una volta il primo return poi mi dice che non accede al codice scritto dopo, devo provare a scrivere tutto in un unico return
 */
+
 console.log('_________________________');
 var arrayNuovo = arrayObj.map((element) => {
   var letterRandom = String.fromCharCode(65 + getRandom(26));
-
+  //uso lo spred operator (SLIDE 257) infilandolo nel return di MAP
   return {...element, position: letterRandom};  //perso mezzora perchè fra element e position avevo messo ;
 });
 console.log(arrayNuovo);
 console.log('_________________________');
+
+//stampo l'array nuovo con il for each e il template literal
 arrayNuovo.forEach((element) => {
   console.log(`${element.name} is the name, is a ${element.type} and it's color is ${element.color} and the position is ${element.position}`);
 });
